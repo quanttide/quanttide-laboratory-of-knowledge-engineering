@@ -4,7 +4,7 @@
 set -e
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-DATA="$ROOT/samples/scenario/products"
+DATA="$ROOT/_examples/scenario/products"
 PARSED="$ROOT/docs/scenario/parsed"
 TRIPLES="$ROOT/docs/scenario/triples.jsonl"
 GENERATED="$ROOT/docs/scenario/generated"

@@ -41,7 +41,7 @@ cmd/extractor       cmd/assessor          cmd/loader           cmd/generator
 
 ```bash
 # 1. 数据提取
-go run ./cmd/extractor -input ./samples/scenario/products -output ./parsed
+go run ./cmd/extractor -input ./_examples/scenario/products -output ./parsed
 
 # 2. 入库
 go run ./cmd/loader -input ./triples.jsonl -threshold 0.7

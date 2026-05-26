@@ -6,14 +6,15 @@
 
 ## 已完成版本
 
-| 版本 | 层 | 状态 |
-|------|------|------|
-| v0.1.0 | 数据层：文件处理管道 | ✅ 完成 |
-| v0.2.0 | 信息层：智能标记 | ✅ 完成 |
-| v0.3.0 | 知识层：入库与推理 | ✅ 完成 |
-| v0.4.0 | 智慧层：应用输出 | ✅ 完成 |
+| 版本 | 层 | 交付物 |
+|------|------|--------|
+| v0.1.0 | 数据层 | `cmd/extractor` + `internal/document` + `internal/markdown` |
+| v0.2.0 | 信息层 | `cmd/assessor` + `internal/triple/chunker/llm` |
+| v0.3.0 | 知识层 | `cmd/loader` + `cmd/reasoner` + `internal/storage` + `internal/rule` |
+| v0.4.0 | 智慧层 | `cmd/generator` + `internal/generator` |
+| 基础设施 | — | `.github/ci.yml` `.gitignore` `Makefile` `go.mod` |
 
-详情见 [STATUS.md](./STATUS.md)。
+管线：`docs/*.md → cmd/extractor → cmd/assessor → cmd/loader → cmd/reasoner → cmd/generator`
 
 ---
 
