@@ -8,13 +8,13 @@
 
 **目标**: 将内部产品文档自动转化为客服知识库（FAQ + API + 数据模型）
 
-**原始材料**: 4 份 Markdown 产品文档（`testdata/scenario/products/`）
+**原始材料**: 4 份 Markdown 产品文档（`samples/scenario/products/`）
 
 ## 管线执行
 
 ```bash
 # 1. 数据提取
-go run ./cmd/extractor -input testdata/scenario/products -output docs/scenario/parsed
+go run ./cmd/extractor -input samples/scenario/products -output docs/scenario/parsed
 
 # 2. 智能标记（需 OPENAI_API_KEY）
 go run ./cmd/assessor -input docs/scenario/parsed -output docs/scenario/triples.jsonl
