@@ -1,8 +1,0 @@
-% 配送可达性推断
-shippable(Product, Region) :- supports_shipping(Product, Region)
-shippable(Product, Region) :- belongs_to(Product, Cat), supports_shipping(Cat, Region)
-
-% 价格区间
-budget_friendly(Product) :- price(Product, P), P < 5000
-mid_range(Product) :- price(Product, P), P >= 5000, P < 10000
-premium(Product) :- price(Product, P), P >= 10000

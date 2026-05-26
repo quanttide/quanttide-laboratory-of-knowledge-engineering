@@ -40,17 +40,17 @@ cmd/extractor       cmd/assessor          cmd/loader           cmd/generator
 ## 快速开始
 
 ```bash
-# 1. 数据提取
-go run ./cmd/extractor -input ./_examples/scenario/products -output ./parsed
+# 数据提取
+go run ./cmd/extractor -input ./testdata/extractor -output ./parsed
 
-# 2. 入库
+# 入库
 go run ./cmd/loader -input ./triples.jsonl -threshold 0.7
 
-# 3. 推理
-go run ./cmd/reasoner -rule ./rules/scenario -query "subclass_tc(?X, ?Y)"
+# 推理
+go run ./cmd/reasoner -rule ./rules/contains.mgl -query "contains_tc(?X, ?Y)"
 
-# 4. 生成
-go run ./cmd/generator -target faq -query "belongs_to(?X, ?Y)" -output ./generated
+# 生成
+go run ./cmd/generator -target code -query "contains(?X, ?Y)" -output ./generated
 ```
 
 ## 许可
