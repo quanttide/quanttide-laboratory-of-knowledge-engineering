@@ -1,2 +1,0 @@
-This is a plain text file without frontmatter.
-It should still be processed by the extractor.
