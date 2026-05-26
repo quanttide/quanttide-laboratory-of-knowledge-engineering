@@ -21,12 +21,16 @@ type Message struct {
 	Content string `json:"content"`
 }
 
+type ResponseFormat struct {
+	Type string `json:"type"`
+}
+
 type Request struct {
-	Model       string    `json:"model"`
-	Messages    []Message `json:"messages"`
-	Temperature float64   `json:"temperature"`
-	MaxTokens   int       `json:"max_tokens"`
-	Format      string    `json:"response_format,omitempty"`
+	Model       string          `json:"model"`
+	Messages    []Message       `json:"messages"`
+	Temperature float64         `json:"temperature"`
+	MaxTokens   int             `json:"max_tokens"`
+	Format      *ResponseFormat `json:"response_format,omitempty"`
 }
 
 type Response struct {
@@ -62,7 +66,7 @@ func (c *Client) Chat(messages []Message) (*Response, error) {
 		Messages:    messages,
 		Temperature: 0.1,
 		MaxTokens:   2048,
-		Format:      "json_object",
+		Format:      &ResponseFormat{Type: "json_object"},
 	}
 
 	var lastErr error
