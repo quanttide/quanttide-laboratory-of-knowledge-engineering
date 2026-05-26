@@ -1,0 +1,11 @@
+% 分类层次传递闭包
+subclass_tc(A, C) :- subclass(A, B), subclass_tc(B, C)
+subclass_tc(A, B) :- subclass(A, B)
+
+% 产品类别推断
+product_category(Product, Category) :- belongs_to(Product, Category)
+product_category(Product, SuperCategory) :- belongs_to(Product, Cat), subclass_tc(Cat, SuperCategory)
+
+% 适用规则推断
+covered_by(Product, Policy) :- applies_to(Policy, Product)
+covered_by(Product, Policy) :- belongs_to(Product, Cat), applies_to(Policy, Cat)

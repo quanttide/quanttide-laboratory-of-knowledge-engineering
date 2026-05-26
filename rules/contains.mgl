@@ -1,0 +1,10 @@
+% 传递闭包：如果 A 包含 B，B 包含 C，则 A 包含 C
+contains_tc(A, C) :- contains(A, B), contains_tc(B, C)
+contains_tc(A, B) :- contains(A, B)
+
+% 约束检查：不能自我包含
+not_self_contained(A) :- contains(A, A)
+
+% 分类层次：如果 A 是 B 的子类，B 是 C 的子类，则 A 是 C 的子类
+subclass_tc(A, C) :- subclass(A, B), subclass_tc(B, C)
+subclass_tc(A, B) :- subclass(A, B)
