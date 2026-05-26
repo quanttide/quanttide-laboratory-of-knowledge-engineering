@@ -3,12 +3,11 @@
 # 完整演示 Data → Information → Knowledge → Wisdom
 set -e
 
-SCENARIO_DIR="$(cd "$(dirname "$0")" && pwd)"
-ROOT="$(dirname "$SCENARIO_DIR")/.."
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 DATA="$ROOT/testdata/scenario/products"
-PARSED="$SCENARIO_DIR/parsed"
-TRIPLES="$SCENARIO_DIR/triples.jsonl"
-GENERATED="$SCENARIO_DIR/generated"
+PARSED="$ROOT/docs/scenario/parsed"
+TRIPLES="$ROOT/docs/scenario/triples.jsonl"
+GENERATED="$ROOT/docs/scenario/generated"
 
 echo "=== 1. 数据提取 ==="
 go run "$ROOT/cmd/extractor" -input "$DATA" -output "$PARSED"

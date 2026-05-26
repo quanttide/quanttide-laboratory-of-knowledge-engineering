@@ -29,7 +29,7 @@ go run ./cmd/reasoner -rule rules/scenario -query "subclass_tc(?X, ?Y)"
 go run ./cmd/generator -target faq -query "belongs_to(?X, ?Y)" -output docs/scenario/generated
 ```
 
-一键执行：`bash docs/scenario/run-pipeline.sh`
+一键执行：`bash scripts/run-scenario.sh`
 
 ## 预期输出
 
