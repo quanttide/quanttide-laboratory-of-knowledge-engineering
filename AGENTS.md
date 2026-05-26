@@ -14,7 +14,7 @@ cmd/reasoner  知识层  — Datalog 推理
 cmd/generator 智慧层  — 生成 Go 代码 / API / FAQ
 cmd/federate  多源融合 — 多数据源联合与融合
 internal/      内部包：document, markdown, triple, chunker, llm, storage, rule, generator, source
-rules/         Datalog 规则文件 (.mgl)
+
 testdata/      测试夹具 + 实验场景数据
 ```
 

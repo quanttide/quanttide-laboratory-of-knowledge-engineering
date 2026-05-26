@@ -22,8 +22,7 @@ internal/
   rule/             # Datalog 规则引擎
   generator/        # 多目标生成器
   source/           # 多数据源接口
-rules/              # Datalog 规则文件
-docs/               # 设计文档 + 示例 + 实验场景
+docs/               # 使用文档
 ```
 
 ## 管线
@@ -34,23 +33,23 @@ cmd/extractor       cmd/assessor          cmd/loader           cmd/generator
   + docs/*.md         + internal/llm        cmd/reasoner         + internal/generator
                       + internal/triple     + internal/storage
                       + internal/chunker    + internal/rule
-                                            + rules/*.mgl
+                                             + .mgl 规则文件
 ```
 
 ## 快速开始
 
 ```bash
 # 数据提取
-go run ./cmd/extractor -input ./testdata/extractor -output ./parsed
+go run ./cmd/extractor -input ./docs -output ./parsed
 
 # 入库
 go run ./cmd/loader -input ./triples.jsonl -threshold 0.7
 
-# 推理
-go run ./cmd/reasoner -rule ./rules/contains.mgl -query "contains_tc(?X, ?Y)"
+# 推理（需先创建 .mgl 规则文件）
+go run ./cmd/reasoner -rule ./rules.mgl -query "my_predicate(?X, ?Y)"
 
 # 生成
-go run ./cmd/generator -target code -query "contains(?X, ?Y)" -output ./generated
+go run ./cmd/generator -target code -query "my_predicate(?X, ?Y)" -output ./generated
 ```
 
 ## 许可

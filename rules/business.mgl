@@ -1,9 +1,0 @@
-% 业务规则：如果库存不足，不能创建订单
-cannot_create_order(Order) :- order(Order), item(Order, Item), insufficient_stock(Item)
-
-% 用户权限传递
-has_permission(User, Action) :- role(User, Role), role_permission(Role, Action)
-
-% 父子关系传递
-parent_tc(A, C) :- parent(A, B), parent_tc(B, C)
-parent_tc(A, B) :- parent(A, B)
