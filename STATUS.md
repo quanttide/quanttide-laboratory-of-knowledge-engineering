@@ -147,7 +147,7 @@ go run ./cmd/generator -target faq -query "contains(?X, ?Y)" -output ./generated
 - `Makefile`（build / test / lint / clean）
 - CI 配置（`.github/workflows/ci.yml`：go build + vet + test）
 - 项目结构对齐 ROADMAP
-- 示例文档（`docs/examples/`）
+- 测试夹具（`testdata/extractor/`）
 - AGENTS.md + docs/design.md
 
 ## 文件统计

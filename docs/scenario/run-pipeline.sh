@@ -5,12 +5,13 @@ set -e
 
 SCENARIO_DIR="$(cd "$(dirname "$0")" && pwd)"
 ROOT="$(dirname "$SCENARIO_DIR")/.."
+DATA="$ROOT/testdata/scenario/products"
 PARSED="$SCENARIO_DIR/parsed"
 TRIPLES="$SCENARIO_DIR/triples.jsonl"
 GENERATED="$SCENARIO_DIR/generated"
 
 echo "=== 1. 数据提取 ==="
-go run "$ROOT/cmd/extractor" -input "$SCENARIO_DIR/products" -output "$PARSED"
+go run "$ROOT/cmd/extractor" -input "$DATA" -output "$PARSED"
 echo ""
 
 echo "=== 2. 智能标记（需设置 OPENAI_API_KEY）==="
