@@ -1,6 +1,9 @@
 package markdown
 
-import "fmt"
+import (
+	"fmt"
+	"unicode/utf8"
+)
 
 type Encoding string
 
@@ -11,28 +14,7 @@ const (
 )
 
 func isLikelyUTF8(raw []byte) bool {
-	i := 0
-	for i < len(raw) {
-		b := raw[i]
-		if b <= 0x7F {
-			i++
-			continue
-		}
-		if b >= 0xC0 && b <= 0xDF && i+1 < len(raw) {
-			if raw[i+1]&0xC0 == 0x80 {
-				i += 2
-				continue
-			}
-		}
-		if b >= 0xE0 && b <= 0xEF && i+2 < len(raw) {
-			if raw[i+1]&0xC0 == 0x80 && raw[i+2]&0xC0 == 0x80 {
-				i += 3
-				continue
-			}
-		}
-		return false
-	}
-	return true
+	return utf8.Valid(raw)
 }
 
 func tryDecodeGBK(raw []byte) ([]byte, bool) {
